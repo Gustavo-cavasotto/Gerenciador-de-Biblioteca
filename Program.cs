@@ -13,6 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ILivroRepository, LivroRepository>();
 builder.Services.AddScoped<IAutorRepository, AutorRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+// Inserindo as interfaces no container de injeção de dependência
 
 var app = builder.Build();
 

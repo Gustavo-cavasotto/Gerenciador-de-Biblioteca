@@ -26,7 +26,7 @@ namespace projeto.Domain.Interfaces
         }
 
         public IList<Livro> GetAll(){
-            return context.Livros.ToList();
+            return context.Livros.Include(x => x.Autores).ToList();
         }
 
         public Livro GetById(int entityId)

@@ -26,7 +26,7 @@ namespace projeto.Domain.Interfaces
         }
 
         public IList<Usuario> GetAll(){
-            return context.Usuarios.ToList();
+            return context.Usuarios.Include(x => x.LivrosEmprestados).ToList();
         }
 
         public Usuario GetById(int entityId)
