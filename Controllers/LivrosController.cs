@@ -10,7 +10,7 @@ using AS_FINAL.Domain;
 namespace projeto.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/livros")]
     public class LivrosController : ControllerBase
     {
         private readonly ILivroRepository repositiory;

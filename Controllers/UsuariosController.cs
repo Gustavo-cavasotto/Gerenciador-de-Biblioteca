@@ -7,32 +7,32 @@ using AS_FINAL.Data.Repositories;
 using projeto.Domain.Interfaces;
 using AS_FINAL.Domain;
 
-namespace AS_FINAL.Controllers
+namespace projeto.Controllers
 {
     [ApiController]
-    [Route("api/autores")]
-    public class AutoresRepository : ControllerBase
+    [Route("api/usuarios")]
+    public class UsuariosController : ControllerBase
     {
-        private readonly IAutorRepository repositiory;
+        private readonly IUsuarioRepository repositiory;
 
-        public AutoresRepository()
+        public UsuariosController()
         {
-            this.repositiory = new AutorRepository();
+            this.repositiory = new UsuarioRepository();
         }
 
         [HttpGet]
-        public IEnumerable<Autor>Get()
+        public IEnumerable<Usuario>Get()
         {
             return repositiory.GetAll();
         }
         [HttpGet("{id}")]
-        public Autor Get(int id)
+        public Usuario Get(int id)
         {
             return repositiory.GetById(id);
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody]Autor item)
+        public IActionResult Post([FromBody]Usuario item)
         {
             repositiory.Save(item);
             return Ok( new {
@@ -48,11 +48,11 @@ namespace AS_FINAL.Controllers
             repositiory.Delete(id);
             return Ok( new {
                 statusCode=200,
-                message = "Autor excluído com sucesso"
+                message = "Usuário excluído com sucesso"
             });
         }
         [HttpPut]
-        public IActionResult Put([FromBody]Autor item)
+        public IActionResult Put([FromBody]Usuario item)
         {
             repositiory.Update(item);
             return Ok( new {
